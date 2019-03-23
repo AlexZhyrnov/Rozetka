@@ -3,16 +3,17 @@ using OpenQA.Selenium;
 
 namespace Rozetka.Core.WebDriver
 {
-    public class SeleniumDriver
+    public static class SeleniumDriver
     {
         private static IWebDriver _driver;
-
-        private SeleniumDriver() {}
 
         public static IWebDriver Driver =>
             _driver ?? (_driver = DriverFactory.Create(ConfigurationManager.AppSettings["Browser"]));
 
-        public static IWebDriver Start() => Driver;
+        public static IWebDriver Start()
+        {
+            return Driver;
+        }
 
         public static void Quit()
         {

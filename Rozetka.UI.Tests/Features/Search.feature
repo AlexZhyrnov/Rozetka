@@ -1,18 +1,18 @@
-﻿Feature: Search
-	As a user
-	I want to use search feature
-	In order to find a product by its name
+﻿@UI
 
+Feature: Search
+	As a Rozetka user
+	I want to use search
+	In order to find products
 
 Background:
-	Given I am on Rozetka 'Main' page
+	Given I am on page 'Rozetka Home'
 
-
-Scenario Outline: Search product in search bar
-	When I search for '<searchText>' in search bar
-	Then I see only products that I searched for
-	And  Button 'Показать еще 32 товара' is displayed
+Scenario Outline: Search products in search bar
+	When I search '<searchText>' in search bar
+	Then Results show only products with '<searchText>' name
+	Then Button with text 'Показать еще 36 товаров' is displayed
 Examples:
 	| searchText |
-	| Hyundai    |
 	| LG         |
+	| Meizu      |

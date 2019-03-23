@@ -1,4 +1,5 @@
-﻿using OpenQA.Selenium;
+﻿using System;
+using OpenQA.Selenium;
 using Rozetka.Core.WebDriver;
 using TechTalk.SpecFlow;
 using System.Configuration;
@@ -16,18 +17,12 @@ namespace Rozetka.UI.Tests.Steps
             _driver = SeleniumDriver.Driver;
         }
 
-        [Given(@"I am on Rozetka '(.*)' page")]
-        public void GivenIAmOnRozetkaPage(string pageName)
+        [Given(@"I am on page '(.*)'")]
+        public void GivenIAmOnPage(string pageName)
         {
-            _driver.Navigate().GoToUrl(ConfigurationManager.AppSettings[pageName]);
-            Wait.Timeout(10).Until(d => PageIsLoaded(pageName));
-        }
-
-        private bool PageIsLoaded(string pageName)
-        {
-            return 
-                _driver.Url.Contains(ConfigurationManager.AppSettings[pageName]) && 
-                _driver.Title.ToLowerInvariant().Contains("rozetka");
+            string pageUrl = ConfigurationManager.AppSettings[pageName.Trim().Replace(" ", string.Empty)];
+            _driver.Navigate().GoToUrl(pageUrl);
+            Wait.Timeout(TimeSpan.FromSeconds(10)).Until(d => _driver.Url.Contains(pageUrl));
         }
     }
 }

@@ -1,4 +1,5 @@
-﻿using OpenQA.Selenium;
+﻿using System;
+using OpenQA.Selenium;
 using Rozetka.Core.Helpers;
 
 namespace Rozetka.Core.Extensions
@@ -9,7 +10,7 @@ namespace Rozetka.Core.Extensions
         {
             try
             {
-                return Wait.Timeout(5).Until(d => element.Displayed);
+                return Wait.Timeout(TimeSpan.FromSeconds(5)).Until(d => element.Displayed);
             }
             catch
             {

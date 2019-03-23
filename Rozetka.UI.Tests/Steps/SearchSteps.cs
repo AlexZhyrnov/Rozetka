@@ -1,7 +1,8 @@
 ﻿using System;
+using System.Linq;
 using NUnit.Framework;
-using Rozetka.Core.Helpers;
-using Rozetka.UI.PageObjects;
+using Rozetka.Core.Extensions;
+using Rozetka.UI.Contexts;
 using TechTalk.SpecFlow;
 
 namespace Rozetka.UI.Tests.Steps
@@ -10,39 +11,34 @@ namespace Rozetka.UI.Tests.Steps
     public sealed class SearchSteps
     {
         private readonly ScenarioContext _scenarioContext;
-        private readonly SearchBar _searchBar;
-        private readonly ResultsContainer _resultsContainer;
-        private const string SearchQueryKey = "searchQuery";
+        private readonly SearchContext _searchContext;
 
         public SearchSteps(ScenarioContext scenarioContext)
         {
             _scenarioContext = scenarioContext ?? throw new ArgumentNullException(nameof(scenarioContext));
-            _searchBar = new SearchBar();
-            _resultsContainer = new ResultsContainer();
+            _searchContext = new SearchContext();
         }
 
-
-        [When(@"I search for '(.*)' in search bar")]
-        public void WhenISearchForProductsInSearchBar(string searchText)
+        [When(@"I search '(.*)' in search bar")]
+        public void WhenISearchProductsInSearchBar(string searchText)
         {
-            _searchBar.SetText(searchText);
-            _searchBar.ClickFind();
-            Wait.Timeout(10).Until(d => _resultsContainer.IsLoaded());
-            _scenarioContext.Add(SearchQueryKey, searchText);
+            _searchContext.Search(searchText);
+            _searchContext.WaitResultsAreLoaded();
         }
 
-        [Then(@"I see only products that I searched for")]
-        public void ThenISeeOnlyProductsThatISearchedFor()
+        [Then(@"Results show only products with '(.*)' name")]
+        public void ThenResultsShowOnlyProductsWithName(string searchText)
         {
-            string searchText = _scenarioContext.Get<string>(SearchQueryKey);
-            Assert.IsTrue(_resultsContainer.AllProductsContain(searchText), $"Not all of the products are '{searchText}'!");
+            var productItems = _searchContext.GetProductItems();
+            Assert.IsTrue(productItems.All(i => i.Text.ToLowerInvariant().Contains(searchText.ToLowerInvariant())), 
+                $"Not all products are '{searchText}'!");
         }
 
-        [Then(@"Button '(.*)' is displayed")]
-        public void ThenButtonIsDisplayed(string buttonText)
+        [Then(@"Button with text '(.*)' is displayed")]
+        public void ThenButtonWithTextIsDisplayed(string buttonText)
         {
-            Assert.IsTrue(_resultsContainer.Load32MoreIsDisplayed(), "Button is not displayed!");
-            Assert.AreEqual(buttonText, _resultsContainer.Load32MoreGetText(), $"Text '{buttonText}' is not displayed!");
+            Assert.IsTrue(_searchContext.Results.LoadMoreBtn.IsDisplayed(), "Button is not displayed!");
+            Assert.AreEqual(buttonText, _searchContext.Results.LoadMoreBtn.Text, $"Text '{buttonText}' is not displayed!");
         }
     }
 }

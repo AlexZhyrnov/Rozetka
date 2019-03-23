@@ -51,6 +51,7 @@
     <Compile Include="Helpers\Wait.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="WebDriver\DriverCreator\ChromeCreator.cs" />
+    <Compile Include="WebDriver\DriverCreator\EdgeChromiumCreator.cs" />
     <Compile Include="WebDriver\DriverFactory.cs" />
     <Compile Include="WebDriver\DriverCreator\EdgeCreator.cs" />
     <Compile Include="WebDriver\DriverCreator\FirefoxCreator.cs" />

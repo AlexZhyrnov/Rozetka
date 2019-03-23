@@ -4,16 +4,17 @@ using OpenQA.Selenium.Chrome;
 
 namespace Rozetka.Core.WebDriver.DriverCreator
 {
-    public class ChromeCreator : IDriverCreator
+    public class EdgeChromiumCreator : IDriverCreator
     {
         public IWebDriver CreateDriver()
         {
-            ChromeDriverService service = ChromeDriverService.CreateDefaultService(AppDomain.CurrentDomain.BaseDirectory);
-            service.LogPath = $"{AppDomain.CurrentDomain.BaseDirectory}ChromeDriver.log";
-
+            ChromeDriverService service = ChromeDriverService.CreateDefaultService(AppDomain.CurrentDomain.BaseDirectory, "msedgedriver.exe");
+            service.LogPath = $"{AppDomain.CurrentDomain.BaseDirectory}EdgeChromiumDriver.log";
+            
             ChromeOptions options = new ChromeOptions();
-            options.AddExcludedArgument("enable-automation");
+            //options.AddExcludedArgument("enable-automation");
             options.AddAdditionalCapability("useAutomationExtension", false);
+            options.BinaryLocation = @"C:\Program Files (x86)\Microsoft\Edge Dev\Application\msedge.exe";
             options.AddUserProfilePreference("download.default_directory", AppDomain.CurrentDomain.BaseDirectory);
             options.AddUserProfilePreference("download.prompt_for_download", true);
             options.AddUserProfilePreference("disable-popup-blocking", true);

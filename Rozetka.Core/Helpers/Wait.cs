@@ -6,9 +6,9 @@ namespace Rozetka.Core.Helpers
 {
     public static class Wait
     {
-        public static WebDriverWait Timeout(int seconds)
+        public static WebDriverWait Timeout(TimeSpan timeSpan)
         {
-            return new WebDriverWait(SeleniumDriver.Driver, TimeSpan.FromSeconds(seconds));
+            return new WebDriverWait(SeleniumDriver.Driver, timeSpan);
         }
     }
 }

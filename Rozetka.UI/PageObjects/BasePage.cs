@@ -5,7 +5,7 @@ namespace Rozetka.UI.PageObjects
 {
     public abstract class BasePage
     {
-        public BasePage()
+        protected BasePage()
         {
             PageFactory.InitElements(SeleniumDriver.Driver, this);
         }
