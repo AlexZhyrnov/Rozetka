@@ -11,11 +11,18 @@ namespace Rozetka.Core.WebDriver
             IDriverCreator driverCreator;
             switch (browser)
             {
-                case "Chrome":  driverCreator = new ChromeCreator();       break;
-                case "Firefox": driverCreator = new FirefoxCreator();      break;
-                case "IE":      driverCreator = new IECreator();           break;
-                case "Edge":    driverCreator = new EdgeCreator();         break;
-                case "EdgeDev": driverCreator = new EdgeChromiumCreator(); break;
+                case "Chrome":
+                    driverCreator = new ChromeCreator();
+                    break;
+                case "Firefox":
+                    driverCreator = new FirefoxCreator();
+                    break;
+                case "IE":
+                    driverCreator = new InternetExplorerCreator();
+                    break;
+                case "Edge":
+                    driverCreator = new EdgeChromiumCreator();
+                    break;
                 default:
                     throw new ArgumentException($"'{browser}' is not a valid browser!");
             }

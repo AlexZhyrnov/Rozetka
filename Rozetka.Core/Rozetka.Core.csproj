@@ -32,6 +32,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Microsoft.Edge.SeleniumTools, Version=3.141.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Edge.SeleniumTools.3.141.0\lib\net45\Microsoft.Edge.SeleniumTools.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
@@ -53,10 +56,9 @@
     <Compile Include="WebDriver\DriverCreator\ChromeCreator.cs" />
     <Compile Include="WebDriver\DriverCreator\EdgeChromiumCreator.cs" />
     <Compile Include="WebDriver\DriverFactory.cs" />
-    <Compile Include="WebDriver\DriverCreator\EdgeCreator.cs" />
     <Compile Include="WebDriver\DriverCreator\FirefoxCreator.cs" />
     <Compile Include="WebDriver\DriverCreator\IDriverCreator.cs" />
-    <Compile Include="WebDriver\DriverCreator\IECreator.cs" />
+    <Compile Include="WebDriver\DriverCreator\InternetExplorerCreator.cs" />
     <Compile Include="WebDriver\SeleniumDriver.cs" />
   </ItemGroup>
   <ItemGroup>

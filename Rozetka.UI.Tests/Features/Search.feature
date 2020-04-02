@@ -1,9 +1,10 @@
 ﻿@UI
+@Search
 
 Feature: Search
 	As a Rozetka user
-	I want to use search
-	In order to find products
+	I want to use Search
+	In order to find Products
 
 Background:
 	Given I am on page 'Rozetka Home'

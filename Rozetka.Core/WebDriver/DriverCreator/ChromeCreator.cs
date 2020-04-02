@@ -23,6 +23,7 @@ namespace Rozetka.Core.WebDriver.DriverCreator
                 "--disable-extensions",
                 "--disable-web-security",
                 "--disable-popup-blocking",
+                "--disable-notifications",
                 "--start-maximized");
             return new ChromeDriver(service, options);
         }
