@@ -27,7 +27,6 @@
     <PackageReference Include="SpecFlow.Tools.MsBuild.Generation" Version="3.1.95" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Rozetka.Core\Rozetka.Core.csproj" />
     <ProjectReference Include="..\Rozetka.UI\Rozetka.UI.csproj" />
   </ItemGroup>
 </Project>
