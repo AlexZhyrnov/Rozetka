@@ -19,12 +19,12 @@
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
-    <PackageReference Include="Selenium.Chrome.WebDriver" Version="2.44.0" />
-    <PackageReference Include="Selenium.Firefox.WebDriver" Version="0.26.0" />
-    <PackageReference Include="Selenium.InternetExplorer.WebDriver" Version="3.150.1" />
-    <PackageReference Include="SpecFlow" Version="3.1.95" />
-    <PackageReference Include="SpecFlow.NUnit" Version="3.1.95" />
-    <PackageReference Include="SpecFlow.Tools.MsBuild.Generation" Version="3.1.95" />
+    <PackageReference Include="Selenium.WebDriver.ChromeDriver" Version="81.0.4044.6900" />
+    <PackageReference Include="Selenium.WebDriver.GeckoDriver" Version="0.26.0.1" />
+    <PackageReference Include="Selenium.WebDriver.IEDriver" Version="3.150.1" />
+    <PackageReference Include="SpecFlow" Version="3.1.97" />
+    <PackageReference Include="SpecFlow.NUnit" Version="3.1.97" />
+    <PackageReference Include="SpecFlow.Tools.MsBuild.Generation" Version="3.1.97" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Rozetka.UI\Rozetka.UI.csproj" />
