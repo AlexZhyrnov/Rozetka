@@ -10,6 +10,6 @@ namespace Rozetka.UI.PageObjects
         public IList<IWebElement> ProductItems { get; set; }
 
         [FindsBy(How = How.CssSelector, Using = ".catalog-more__link")]
-        public IWebElement LoadMoreBtn { get; set; }
+        public IWebElement LoadMoreButton { get; set; }
     }
 }

@@ -1,5 +1,4 @@
-﻿using System;
-using OpenQA.Selenium;
+﻿using OpenQA.Selenium;
 using Rozetka.Core.WebDriver;
 using TechTalk.SpecFlow;
 using System.Configuration;
@@ -22,7 +21,7 @@ namespace Rozetka.UI.Tests.Steps
         {
             string pageUrl = ConfigurationManager.AppSettings[pageName.Trim().Replace(" ", string.Empty)];
             _driver.Navigate().GoToUrl(pageUrl);
-            Wait.Timeout(TimeSpan.FromSeconds(10)).Until(d => _driver.Url.Contains(pageUrl));
+            Wait.Until(d => _driver.Url.Contains(pageUrl));
         }
     }
 }

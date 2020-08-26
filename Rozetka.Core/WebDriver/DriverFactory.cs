@@ -21,12 +21,11 @@ namespace Rozetka.Core.WebDriver
                     driverCreator = new InternetExplorerCreator();
                     break;
                 case "Edge":
-                    driverCreator = new EdgeChromiumCreator();
+                    driverCreator = new EdgeCreator();
                     break;
                 default:
                     throw new ArgumentException($"'{browser}' is not a valid browser!");
             }
-            //driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(1);
             return driverCreator.CreateDriver();
         }
     }

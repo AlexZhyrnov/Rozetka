@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using OpenQA.Selenium;
 using Rozetka.Core.Helpers;
@@ -9,32 +8,38 @@ namespace Rozetka.UI.Contexts
 {
     public class SearchContext
     {
-        public readonly SearchBar SearchBar;
-        public readonly ResultsContainer Results;
+        private readonly SearchBar _searchBar;
+        private readonly ResultsContainer _results;
 
         public SearchContext()
         {
-            SearchBar = new SearchBar();
-            Results = new ResultsContainer();
+            _searchBar = new SearchBar();
+            _results = new ResultsContainer();
         }
 
         public void Search(string text)
         {
-            Wait.Timeout(TimeSpan.FromSeconds(10)).Until(d => SearchBar.SearchInput.Displayed);
-            SearchBar.SearchInput.Clear();
-            SearchBar.SearchInput.SendKeys(text);
-            Wait.Timeout(TimeSpan.FromSeconds(10)).Until(d => SearchBar.SearchButton.Displayed);
-            SearchBar.SearchButton.Click();
+            Wait.Until(d => _searchBar.SearchInput.Displayed);
+            _searchBar.SearchInput.Clear();
+            _searchBar.SearchInput.SendKeys(text);
+            Wait.Until(d => _searchBar.SearchButton.Displayed);
+            _searchBar.SearchButton.Click();
+            WaitResultsAreLoaded();
         }
 
         public void WaitResultsAreLoaded()
         {
-            Wait.Timeout(TimeSpan.FromSeconds(10)).Until(d => Results.ProductItems.Any(i => i.Displayed));
+            Wait.Until(d => _results.ProductItems.Any(i => i.Displayed));
         }
 
-        public List<IWebElement> GetProductItems()
+        public IList<IWebElement> GetProductItems()
         {
-            return Results.ProductItems.ToList();
+            return _results.ProductItems;
+        }
+
+        public IWebElement GetLoadMoreButton()
+        {
+            return _results.LoadMoreButton;
         }
     }
 }

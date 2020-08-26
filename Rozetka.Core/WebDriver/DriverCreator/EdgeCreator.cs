@@ -4,7 +4,7 @@ using Microsoft.Edge.SeleniumTools;
 
 namespace Rozetka.Core.WebDriver.DriverCreator
 {
-    public class EdgeChromiumCreator : IDriverCreator
+    public class EdgeCreator : IDriverCreator
     {
         public IWebDriver CreateDriver()
         {
