@@ -1,5 +1,5 @@
-﻿using System.Configuration;
-using OpenQA.Selenium;
+﻿using OpenQA.Selenium;
+using Rozetka.Core.Extensions;
 
 namespace Rozetka.Core.WebDriver
 {
@@ -8,7 +8,7 @@ namespace Rozetka.Core.WebDriver
         private static IWebDriver _driver;
 
         public static IWebDriver Driver =>
-            _driver ?? (_driver = DriverFactory.Create(ConfigurationManager.AppSettings["Browser"]));
+            _driver ??= DriverFactory.Create(ConfigExtensions.GetAppSettings("Browser"));
 
         public static IWebDriver Start()
         {

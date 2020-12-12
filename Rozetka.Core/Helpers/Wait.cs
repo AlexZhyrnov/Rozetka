@@ -1,7 +1,7 @@
-﻿using OpenQA.Selenium.Support.UI;
+﻿using OpenQA.Selenium;
+using OpenQA.Selenium.Support.UI;
 using Rozetka.Core.WebDriver;
 using System;
-using OpenQA.Selenium;
 
 namespace Rozetka.Core.Helpers
 {

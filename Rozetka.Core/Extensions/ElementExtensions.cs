@@ -1,6 +1,6 @@
-﻿using System;
-using OpenQA.Selenium;
+﻿using OpenQA.Selenium;
 using Rozetka.Core.Helpers;
+using System;
 
 namespace Rozetka.Core.Extensions
 {

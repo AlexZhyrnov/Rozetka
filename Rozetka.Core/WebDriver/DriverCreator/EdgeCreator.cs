@@ -1,6 +1,6 @@
-﻿using System;
+﻿using Microsoft.Edge.SeleniumTools;
 using OpenQA.Selenium;
-using Microsoft.Edge.SeleniumTools;
+using System;
 
 namespace Rozetka.Core.WebDriver.DriverCreator
 {
@@ -11,7 +11,7 @@ namespace Rozetka.Core.WebDriver.DriverCreator
             EdgeDriverService service = EdgeDriverService.CreateChromiumService(AppDomain.CurrentDomain.BaseDirectory);
             service.LogPath = $"{AppDomain.CurrentDomain.BaseDirectory}MsEdgeDriver.log";
 
-            EdgeOptions options = new EdgeOptions {UseChromium = true};
+            EdgeOptions options = new EdgeOptions { UseChromium = true };
             //options.AddExcludedArgument("enable-automation");
             options.AddAdditionalCapability("useAutomationExtension", false);
             options.AddUserProfilePreference("download.default_directory", AppDomain.CurrentDomain.BaseDirectory);

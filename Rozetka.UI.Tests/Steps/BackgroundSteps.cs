@@ -1,8 +1,8 @@
 ﻿using OpenQA.Selenium;
+using Rozetka.Core.Extensions;
+using Rozetka.Core.Helpers;
 using Rozetka.Core.WebDriver;
 using TechTalk.SpecFlow;
-using System.Configuration;
-using Rozetka.Core.Helpers;
 
 namespace Rozetka.UI.Tests.Steps
 {
@@ -19,7 +19,7 @@ namespace Rozetka.UI.Tests.Steps
         [Given(@"I am on page '(.*)'")]
         public void GivenIAmOnPage(string pageName)
         {
-            string pageUrl = ConfigurationManager.AppSettings[pageName.Trim().Replace(" ", string.Empty)];
+            string pageUrl = ConfigExtensions.GetAppSettings(pageName.Replace(" ", string.Empty).Trim());
             _driver.Navigate().GoToUrl(pageUrl);
             Wait.Until(d => _driver.Url.Contains(pageUrl));
         }

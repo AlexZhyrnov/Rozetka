@@ -1,8 +1,8 @@
-﻿using System.Collections.Generic;
-using System.Linq;
-using OpenQA.Selenium;
+﻿using OpenQA.Selenium;
 using Rozetka.Core.Helpers;
 using Rozetka.UI.PageObjects;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace Rozetka.UI.Contexts
 {

@@ -1,6 +1,6 @@
-﻿using System;
-using OpenQA.Selenium;
+﻿using OpenQA.Selenium;
 using Rozetka.Core.WebDriver.DriverCreator;
+using System;
 
 namespace Rozetka.Core.WebDriver
 {

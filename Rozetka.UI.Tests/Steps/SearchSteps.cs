@@ -1,7 +1,7 @@
-﻿using System.Linq;
-using NUnit.Framework;
+﻿using NUnit.Framework;
 using Rozetka.Core.Extensions;
 using Rozetka.UI.Contexts;
+using System.Linq;
 using TechTalk.SpecFlow;
 
 namespace Rozetka.UI.Tests.Steps
