@@ -8,7 +8,7 @@ Feature: Search
 	In order to find products
 
 Background:
-	Given I am on page 'Rozetka Home'
+	Given I am on page Rozetka
 
 Scenario Outline: Search products in search bar
 	When I search '<searchText>' in search bar
