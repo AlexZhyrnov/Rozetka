@@ -1,5 +1,4 @@
 ﻿using OpenQA.Selenium;
-using Rozetka.Core.Resources;
 
 namespace Rozetka.Core.WebDriver
 {
