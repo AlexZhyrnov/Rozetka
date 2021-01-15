@@ -2,9 +2,11 @@
 
 namespace Rozetka.Core.WebDriver
 {
-    public static class SeleniumDriver
+    public class SeleniumDriver
     {
         private static IWebDriver _driver;
+
+        private SeleniumDriver() { }
 
         public static IWebDriver Driver => _driver ??= DriverFactory.Create(Settings.Browser);
 
