@@ -19,8 +19,8 @@ namespace Rozetka.UI.Contexts
 
         public void Search(string text)
         {
-            new Wait().Until(() => _searchBar.SearchInput.Displayed);
-            new Wait().Until(() => _searchBar.SearchButton.Displayed);
+            Wait.Until(() => _searchBar.SearchInput.Displayed);
+            Wait.Until(() => _searchBar.SearchButton.Displayed);
             _searchBar.SearchInput.Clear();
             _searchBar.SearchInput.SendKeys(text);
             _searchBar.SearchButton.Click();
@@ -29,8 +29,8 @@ namespace Rozetka.UI.Contexts
 
         public void WaitResultsLoaded()
         {
-            new Wait().Until(() => _searchResults.ProductItems.Any());
-            new Wait().Until(() => _searchResults.ProductItems.All(i => i.Displayed));
+            Wait.Until(() => _searchResults.ProductItems.Any());
+            Wait.Until(() => _searchResults.ProductItems.All(i => i.Displayed));
         }
 
         public IList<IWebElement> GetProductItems()

@@ -7,52 +7,53 @@ using System.Linq;
 
 namespace Rozetka.Core.Helpers
 {
-    public class Wait
+    public static class Wait
+    {
+        public static WaitOptions With => new WaitOptions();
+
+        public static bool Until(Func<bool> condition) => With.Until(condition);
+    }
+
+    public class WaitOptions
     {
         private static readonly TimeSpan DefaultTimeout = TimeSpan.FromMinutes(1);
         private static readonly TimeSpan DefaultPollingInterval = TimeSpan.FromMilliseconds(200);
         private readonly WebDriverWait _webDriverWait;
         private readonly List<Type> _exceptionTypes;
 
-        public Wait()
+        public WaitOptions()
         {
             _webDriverWait = new WebDriverWait(WebDriver.Driver, DefaultTimeout) { PollingInterval = DefaultPollingInterval };
             _exceptionTypes = new List<Type>();
         }
 
-        public Wait TimeoutSeconds(int seconds)
+        public WaitOptions Timeout(TimeSpan timeSpan)
         {
-            _webDriverWait.Timeout = TimeSpan.FromSeconds(seconds);
+            _webDriverWait.Timeout = timeSpan;
             return this;
         }
 
-        public Wait TimeoutMilliseconds(int milliseconds)
+        public WaitOptions PollingInterval(TimeSpan timeSpan)
         {
-            _webDriverWait.Timeout = TimeSpan.FromMilliseconds(milliseconds);
+            _webDriverWait.PollingInterval = timeSpan;
             return this;
         }
 
-        public Wait PollingIntervalMilliseconds(int milliseconds)
-        {
-            _webDriverWait.PollingInterval = TimeSpan.FromMilliseconds(milliseconds);
-            return this;
-        }
-
-        public Wait Message(string messageText)
+        public WaitOptions Message(string messageText)
         {
             _webDriverWait.Message = messageText;
             return this;
         }
 
-        public Wait IgnoreExceptions(params Type[] exceptionTypes)
+        public WaitOptions IgnoreExceptions(params Type[] exceptionTypes)
         {
             _exceptionTypes.AddRange(exceptionTypes);
             return this;
         }
 
-        public Wait IgnoreWebDriverTimeoutException()
+        public WaitOptions IgnoreTimeoutException()
         {
-            _exceptionTypes.Add(typeof(WebDriverTimeoutException));
+            IgnoreExceptions(typeof(WebDriverTimeoutException));
             return this;
         }
 
