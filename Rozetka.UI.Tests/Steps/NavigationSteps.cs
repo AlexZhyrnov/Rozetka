@@ -1,4 +1,4 @@
-﻿using Rozetka.Core.WebDriver;
+﻿using Rozetka.Core.Driver;
 using TechTalk.SpecFlow;
 
 namespace Rozetka.UI.Tests.Steps
@@ -9,7 +9,7 @@ namespace Rozetka.UI.Tests.Steps
         [Given(@"I am on page Rozetka")]
         public void GivenIAmOnPageRozetka()
         {
-            SeleniumDriver.Driver.Navigate().GoToUrl("https://rozetka.com.ua");
+            WebDriver.Driver.Navigate().GoToUrl("https://rozetka.com.ua");
         }
     }
 }

@@ -1,4 +1,4 @@
-﻿using Rozetka.Core.WebDriver;
+﻿using Rozetka.Core.Driver;
 using TechTalk.SpecFlow;
 
 namespace Rozetka.UI.Tests.Hooks
@@ -9,13 +9,13 @@ namespace Rozetka.UI.Tests.Hooks
         [BeforeTestRun]
         public static void BeforeTestRun()
         {
-            SeleniumDriver.Start();
+            WebDriver.Start();
         }
 
         [AfterTestRun]
         public static void AfterTestRun()
         {
-            SeleniumDriver.Quit();
+            WebDriver.Quit();
         }
     }
 }

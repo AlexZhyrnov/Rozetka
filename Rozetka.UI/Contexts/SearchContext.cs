@@ -9,37 +9,38 @@ namespace Rozetka.UI.Contexts
     public class SearchContext
     {
         private readonly SearchBar _searchBar;
-        private readonly ResultsContainer _results;
+        private readonly SearchResults _searchResults;
 
         public SearchContext()
         {
             _searchBar = new SearchBar();
-            _results = new ResultsContainer();
+            _searchResults = new SearchResults();
         }
 
         public void Search(string text)
         {
-            Wait.Until(d => _searchBar.SearchInput.Displayed);
+            new Wait().Until(() => _searchBar.SearchInput.Displayed);
+            new Wait().Until(() => _searchBar.SearchButton.Displayed);
             _searchBar.SearchInput.Clear();
             _searchBar.SearchInput.SendKeys(text);
-            Wait.Until(d => _searchBar.SearchButton.Displayed);
             _searchBar.SearchButton.Click();
-            WaitResultsAreLoaded();
+            WaitResultsLoaded();
         }
 
-        public void WaitResultsAreLoaded()
+        public void WaitResultsLoaded()
         {
-            Wait.Until(d => _results.ProductItems.Any(i => i.Displayed));
+            new Wait().Until(() => _searchResults.ProductItems.Any());
+            new Wait().Until(() => _searchResults.ProductItems.All(i => i.Displayed));
         }
 
         public IList<IWebElement> GetProductItems()
         {
-            return _results.ProductItems;
+            return _searchResults.ProductItems;
         }
 
         public IWebElement GetLoadMoreButton()
         {
-            return _results.LoadMoreButton;
+            return _searchResults.LoadMoreButton;
         }
     }
 }

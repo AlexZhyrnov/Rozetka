@@ -1,18 +1,18 @@
-﻿using Microsoft.Edge.SeleniumTools;
-using OpenQA.Selenium;
+﻿using OpenQA.Selenium;
+using OpenQA.Selenium.Chrome;
 using System;
 
-namespace Rozetka.Core.WebDriver.DriverCreator
+namespace Rozetka.Core.Driver.DriverCreator
 {
-    public class EdgeCreator : IDriverCreator
+    public class ChromeCreator : IDriverCreator
     {
         public IWebDriver CreateDriver()
         {
-            EdgeDriverService service = EdgeDriverService.CreateChromiumService(AppDomain.CurrentDomain.BaseDirectory);
-            service.LogPath = $"{AppDomain.CurrentDomain.BaseDirectory}MsEdgeDriver.log";
+            ChromeDriverService service = ChromeDriverService.CreateDefaultService(AppDomain.CurrentDomain.BaseDirectory);
+            service.LogPath = $"{AppDomain.CurrentDomain.BaseDirectory}ChromeDriver.log";
 
-            EdgeOptions options = new EdgeOptions { UseChromium = true };
-            //options.AddExcludedArgument("enable-automation");
+            ChromeOptions options = new ChromeOptions();
+            options.AddExcludedArgument("enable-automation");
             options.AddAdditionalCapability("useAutomationExtension", false);
             options.AddUserProfilePreference("download.default_directory", AppDomain.CurrentDomain.BaseDirectory);
             options.AddUserProfilePreference("download.prompt_for_download", true);
@@ -25,7 +25,7 @@ namespace Rozetka.Core.WebDriver.DriverCreator
                 "--disable-popup-blocking",
                 "--disable-notifications",
                 "--start-maximized");
-            return new EdgeDriver(service, options);
+            return new ChromeDriver(service, options);
         }
     }
 }

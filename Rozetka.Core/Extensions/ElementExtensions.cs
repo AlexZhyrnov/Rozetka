@@ -1,6 +1,5 @@
 ﻿using OpenQA.Selenium;
 using Rozetka.Core.Helpers;
-using System;
 
 namespace Rozetka.Core.Extensions
 {
@@ -8,14 +7,11 @@ namespace Rozetka.Core.Extensions
     {
         public static bool IsDisplayed(this IWebElement element)
         {
-            try
-            {
-                return Wait.Timeout(TimeSpan.FromSeconds(5)).Until(d => element.Displayed);
-            }
-            catch
-            {
-                return false;
-            }
+            return new Wait()
+                .TimeoutMilliseconds(200)
+                .PollingIntervalMilliseconds(100)
+                .IgnoreWebDriverTimeoutException()
+                .Until(() => element.Displayed);
         }
     }
 }

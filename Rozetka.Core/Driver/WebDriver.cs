@@ -1,12 +1,12 @@
 ﻿using OpenQA.Selenium;
 
-namespace Rozetka.Core.WebDriver
+namespace Rozetka.Core.Driver
 {
-    public class SeleniumDriver
+    public class WebDriver
     {
         private static IWebDriver _driver;
 
-        private SeleniumDriver() { }
+        private WebDriver() { }
 
         public static IWebDriver Driver => _driver ??= DriverFactory.Create(Settings.Browser);
 
@@ -18,7 +18,6 @@ namespace Rozetka.Core.WebDriver
         public static void Quit()
         {
             _driver.Quit();
-            _driver = null;
         }
     }
 }

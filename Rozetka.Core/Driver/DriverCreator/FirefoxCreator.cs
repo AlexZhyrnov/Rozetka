@@ -1,7 +1,7 @@
 ﻿using OpenQA.Selenium;
 using OpenQA.Selenium.Firefox;
 
-namespace Rozetka.Core.WebDriver.DriverCreator
+namespace Rozetka.Core.Driver.DriverCreator
 {
     public class FirefoxCreator : IDriverCreator
     {

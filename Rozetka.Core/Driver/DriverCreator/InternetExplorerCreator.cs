@@ -1,7 +1,7 @@
 ﻿using OpenQA.Selenium;
 using OpenQA.Selenium.IE;
 
-namespace Rozetka.Core.WebDriver.DriverCreator
+namespace Rozetka.Core.Driver.DriverCreator
 {
     public class InternetExplorerCreator : IDriverCreator
     {

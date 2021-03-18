@@ -3,7 +3,7 @@ using SeleniumExtras.PageObjects;
 
 namespace Rozetka.UI.PageObjects
 {
-    public class SearchBar : BasePage
+    public class SearchBar : Container
     {
         [FindsBy(How = How.CssSelector, Using = "input.search-form__input")]
         public IWebElement SearchInput { get; set; }

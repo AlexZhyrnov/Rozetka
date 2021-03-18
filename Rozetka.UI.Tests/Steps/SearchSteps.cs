@@ -27,16 +27,17 @@ namespace Rozetka.UI.Tests.Steps
         [Then(@"Results show only products with '(.*)' name")]
         public void ThenResultsShowOnlyProductsWithName(string searchText)
         {
-            var productItems = _searchContext.GetProductItems();
-            Assert.IsTrue(productItems.All(i => i.Text.ToLowerInvariant().Contains(searchText.ToLowerInvariant())),
-                $"Not all products are '{searchText}'!");
+            var productItemsText = _searchContext.GetProductItems().Select(i => i.Text.ToLowerInvariant()).ToList();
+            Assert.Multiple(() =>
+                productItemsText.ForEach(text =>
+                    Assert.That(text, Contains.Substring(searchText.ToLowerInvariant()), $"Product with name {searchText} not found!")));
         }
 
         [Then(@"Button with text '(.*)' is displayed")]
         public void ThenButtonWithTextIsDisplayed(string buttonText)
         {
-            Assert.IsTrue(_searchContext.GetLoadMoreButton().IsDisplayed(), "Button is not displayed!");
-            Assert.AreEqual(buttonText, _searchContext.GetLoadMoreButton().Text, $"Text '{buttonText}' is not displayed!");
+            Assert.That(_searchContext.GetLoadMoreButton().IsDisplayed(), "Load More button is not displayed!");
+            Assert.That(_searchContext.GetLoadMoreButton().Text, Is.EqualTo(buttonText), $"Text '{buttonText}' does not match!");
         }
     }
 }

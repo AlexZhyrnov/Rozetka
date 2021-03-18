@@ -4,12 +4,12 @@ using System.Collections.Generic;
 
 namespace Rozetka.UI.PageObjects
 {
-    public class ResultsContainer : BasePage
+    public class SearchResults : Container
     {
         [FindsBy(How = How.CssSelector, Using = ".goods-tile")]
         public IList<IWebElement> ProductItems { get; set; }
 
-        [FindsBy(How = How.CssSelector, Using = ".catalog-more__link")]
+        [FindsBy(How = How.CssSelector, Using = "a.show-more")]
         public IWebElement LoadMoreButton { get; set; }
     }
 }
