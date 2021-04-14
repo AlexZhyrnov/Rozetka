@@ -62,7 +62,7 @@ namespace Rozetka.Core.Helpers
             try
             {
                 _webDriverWait.IgnoreExceptionTypes(_exceptionTypes.Distinct().ToArray());
-                return _webDriverWait.Until(d => condition.Invoke());
+                return _webDriverWait.Until(d => condition());
             }
             catch (Exception e)
             {
