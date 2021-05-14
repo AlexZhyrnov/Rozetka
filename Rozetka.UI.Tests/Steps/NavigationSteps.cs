@@ -7,7 +7,7 @@ namespace Rozetka.UI.Tests.Steps
     public sealed class NavigationSteps
     {
         [Given(@"I am on page Rozetka")]
-        public void GivenIAmOnPageRozetka()
+        public static void GivenIAmOnPageRozetka()
         {
             WebDriver.Driver.Navigate().GoToUrl("https://rozetka.com.ua");
         }

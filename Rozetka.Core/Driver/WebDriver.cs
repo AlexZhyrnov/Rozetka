@@ -18,6 +18,7 @@ namespace Rozetka.Core.Driver
         public static void Quit()
         {
             _driver.Quit();
+            _driver = null;
         }
     }
 }

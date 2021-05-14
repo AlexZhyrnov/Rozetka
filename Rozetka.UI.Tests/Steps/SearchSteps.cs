@@ -30,14 +30,14 @@ namespace Rozetka.UI.Tests.Steps
             var productItemsText = _searchContext.GetProductItems().Select(i => i.Text.ToLowerInvariant()).ToList();
             Assert.Multiple(() =>
                 productItemsText.ForEach(text =>
-                    Assert.That(text, Contains.Substring(searchText.ToLowerInvariant()), $"Product with name {searchText} not found!")));
+                    Assert.That(text, Contains.Substring(searchText.ToLowerInvariant()), $"Product with name '{searchText}' not found!")));
         }
 
         [Then(@"Button with text '(.*)' is displayed")]
         public void ThenButtonWithTextIsDisplayed(string buttonText)
         {
             Assert.That(_searchContext.GetLoadMoreButton().IsDisplayed(), "Load More button is not displayed!");
-            Assert.That(_searchContext.GetLoadMoreButton().Text, Is.EqualTo(buttonText), $"Text '{buttonText}' does not match!");
+            Assert.That(_searchContext.GetLoadMoreButton().Text, Is.EqualTo(buttonText), $"Button text '{buttonText}' does not match!");
         }
     }
 }

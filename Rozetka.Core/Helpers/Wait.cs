@@ -9,7 +9,7 @@ namespace Rozetka.Core.Helpers
 {
     public static class Wait
     {
-        public static WaitOptions With => new WaitOptions();
+        public static WaitOptions With => new();
 
         public static bool Until(Func<bool> condition) => With.Until(condition);
     }
@@ -62,7 +62,7 @@ namespace Rozetka.Core.Helpers
             try
             {
                 _webDriverWait.IgnoreExceptionTypes(_exceptionTypes.Distinct().ToArray());
-                return _webDriverWait.Until(d => condition());
+                return _webDriverWait.Until(_ => condition());
             }
             catch (Exception e)
             {

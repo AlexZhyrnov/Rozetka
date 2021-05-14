@@ -7,7 +7,7 @@ namespace Rozetka.Core.Driver.DriverCreator
     {
         public IWebDriver CreateDriver()
         {
-            FirefoxDriver driver = new FirefoxDriver();
+            FirefoxDriver driver = new();
             driver.Manage().Window.Maximize();
             return driver;
         }

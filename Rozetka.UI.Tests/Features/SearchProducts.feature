@@ -2,10 +2,10 @@
 @Rozetka
 @Search
 
-Feature: Search
+Feature: Search Products
 	As a Rozetka user
-	I want to use Search
-	In order to find products
+	I want to use Search bar
+	In order to find products that I'm interested in
 
 Background:
 	Given I am on page Rozetka

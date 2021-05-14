@@ -7,7 +7,7 @@ namespace Rozetka.Core.Driver.DriverCreator
     {
         public IWebDriver CreateDriver()
         {
-            InternetExplorerOptions options = new InternetExplorerOptions
+            InternetExplorerOptions options = new()
             {
                 UnhandledPromptBehavior = UnhandledPromptBehavior.Ignore,
                 EnablePersistentHover = true,
@@ -17,7 +17,7 @@ namespace Rozetka.Core.Driver.DriverCreator
                 RequireWindowFocus = true,
                 IgnoreZoomLevel = true
             };
-            InternetExplorerDriver driver = new InternetExplorerDriver(options);
+            InternetExplorerDriver driver = new(options);
             //driver.Manage().Timeouts().AsynchronousJavaScript = TimeSpan.FromSeconds(5);
             driver.Manage().Window.Maximize();
             return driver;

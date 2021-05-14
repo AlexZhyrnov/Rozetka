@@ -11,7 +11,7 @@ namespace Rozetka.Core.Driver.DriverCreator
             ChromeDriverService service = ChromeDriverService.CreateDefaultService(AppDomain.CurrentDomain.BaseDirectory);
             service.LogPath = $"{AppDomain.CurrentDomain.BaseDirectory}ChromeDriver.log";
 
-            ChromeOptions options = new ChromeOptions();
+            ChromeOptions options = new();
             options.AddExcludedArgument("enable-automation");
             options.AddAdditionalCapability("useAutomationExtension", false);
             options.AddUserProfilePreference("download.default_directory", AppDomain.CurrentDomain.BaseDirectory);

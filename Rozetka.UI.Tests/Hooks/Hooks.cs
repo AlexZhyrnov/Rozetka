@@ -6,14 +6,14 @@ namespace Rozetka.UI.Tests.Hooks
     [Binding]
     public sealed class Hooks
     {
-        [BeforeTestRun]
-        public static void BeforeTestRun()
+        [BeforeFeature]
+        public static void BeforeFeature()
         {
             WebDriver.Start();
         }
 
-        [AfterTestRun]
-        public static void AfterTestRun()
+        [AfterFeature]
+        public static void AfterFeature()
         {
             WebDriver.Quit();
         }
