@@ -1,6 +1,6 @@
 ﻿using OpenQA.Selenium;
 
-namespace Rozetka.Core.Driver.DriverCreator
+namespace Rozetka.WebDriver.DriverCreator
 {
     public interface IDriverCreator
     {

@@ -8,6 +8,6 @@
     <PackageReference Include="DotNetSeleniumExtras.PageObjects.Core" Version="3.12.0" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Rozetka.Core\Rozetka.Core.csproj" />
+    <ProjectReference Include="..\Rozetka\Rozetka.csproj" />
   </ItemGroup>
 </Project>

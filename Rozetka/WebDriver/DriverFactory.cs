@@ -1,8 +1,8 @@
 ﻿using OpenQA.Selenium;
-using Rozetka.Core.Driver.DriverCreator;
+using Rozetka.WebDriver.DriverCreator;
 using System;
 
-namespace Rozetka.Core.Driver
+namespace Rozetka.WebDriver
 {
     public static class DriverFactory
     {

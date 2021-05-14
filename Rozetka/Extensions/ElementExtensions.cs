@@ -1,8 +1,8 @@
 ﻿using OpenQA.Selenium;
-using Rozetka.Core.Helpers;
+using Rozetka.Helpers;
 using System;
 
-namespace Rozetka.Core.Extensions
+namespace Rozetka.Extensions
 {
     public static class ElementExtensions
     {

@@ -2,7 +2,7 @@
 using OpenQA.Selenium;
 using System;
 
-namespace Rozetka.Core.Driver.DriverCreator
+namespace Rozetka.WebDriver.DriverCreator
 {
     public class EdgeCreator : IDriverCreator
     {

@@ -1,5 +1,5 @@
 ﻿using NUnit.Framework;
-using Rozetka.Core.Extensions;
+using Rozetka.Extensions;
 using Rozetka.UI.Contexts;
 using System.Linq;
 using TechTalk.SpecFlow;

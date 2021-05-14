@@ -1,4 +1,4 @@
-﻿using Rozetka.Core.Driver;
+﻿using Rozetka.WebDriver;
 using TechTalk.SpecFlow;
 
 namespace Rozetka.UI.Tests.Hooks
@@ -9,13 +9,13 @@ namespace Rozetka.UI.Tests.Hooks
         [BeforeFeature]
         public static void BeforeFeature()
         {
-            WebDriver.Start();
+            DriverService.Start();
         }
 
         [AfterFeature]
         public static void AfterFeature()
         {
-            WebDriver.Quit();
+            DriverService.Quit();
         }
     }
 }

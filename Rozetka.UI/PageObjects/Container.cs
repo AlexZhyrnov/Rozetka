@@ -1,4 +1,4 @@
-﻿using Rozetka.Core.Driver;
+﻿using Rozetka.WebDriver;
 using SeleniumExtras.PageObjects;
 
 namespace Rozetka.UI.PageObjects
@@ -7,7 +7,7 @@ namespace Rozetka.UI.PageObjects
     {
         protected Container()
         {
-            PageFactory.InitElements(WebDriver.Driver, this);
+            PageFactory.InitElements(DriverService.Driver, this);
         }
     }
 }

@@ -2,7 +2,7 @@
 # Visual Studio 15
 VisualStudioVersion = 15.0.27428.2027
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Rozetka.Core", "Rozetka.Core\Rozetka.Core.csproj", "{E9B978B1-C565-4CC4-A4A8-EBEDA0AEBF7F}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Rozetka", "Rozetka\Rozetka.csproj", "{E9B978B1-C565-4CC4-A4A8-EBEDA0AEBF7F}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Rozetka.UI", "Rozetka.UI\Rozetka.UI.csproj", "{0B2B5D21-3A2C-4658-B854-5425170C1313}"
 EndProject

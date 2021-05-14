@@ -2,7 +2,7 @@
 using OpenQA.Selenium.Chrome;
 using System;
 
-namespace Rozetka.Core.Driver.DriverCreator
+namespace Rozetka.WebDriver.DriverCreator
 {
     public class ChromeCreator : IDriverCreator
     {

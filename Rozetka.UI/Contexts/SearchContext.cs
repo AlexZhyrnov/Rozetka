@@ -1,5 +1,5 @@
 ﻿using OpenQA.Selenium;
-using Rozetka.Core.Helpers;
+using Rozetka.Helpers;
 using Rozetka.UI.PageObjects;
 using System.Collections.Generic;
 using System.Linq;

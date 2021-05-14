@@ -1,11 +1,11 @@
 ﻿using OpenQA.Selenium;
 using OpenQA.Selenium.Support.UI;
-using Rozetka.Core.Driver;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using DriverService = Rozetka.WebDriver.DriverService;
 
-namespace Rozetka.Core.Helpers
+namespace Rozetka.Helpers
 {
     public static class Wait
     {
@@ -23,7 +23,7 @@ namespace Rozetka.Core.Helpers
 
         public WaitOptions()
         {
-            _webDriverWait = new WebDriverWait(WebDriver.Driver, DefaultTimeout) { PollingInterval = DefaultPollingInterval };
+            _webDriverWait = new WebDriverWait(DriverService.Driver, DefaultTimeout) { PollingInterval = DefaultPollingInterval };
             _exceptionTypes = new List<Type>();
         }
 
